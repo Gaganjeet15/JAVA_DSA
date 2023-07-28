@@ -1,26 +1,22 @@
 class Solution {
-    public int search(int[] nums, int target) {
+    public int search(int[] arr, int target) {
         
-        int start =0; // first  taking a variable start (while index is 0 )
-        int end= nums.length-1; //(end)
-         while(start <= end)
-         {
-             int mid = (start + end)/2; // this is a formula for the mid
+         int start = 0;              // Starting index of the search space
+        int end = arr.length - 1;   // Ending index of the search space
 
-             if(target < nums[mid]) // if target is smaller  then mid we will search in left 
-             
-                 end = mid -1; // // this is for finding the middle.
+        while (start <= end) {
+            int mid = start + (end - start) / 2; // Calculate the middle index
+            int midVal = arr[mid];              // Get the value at the middle index
 
-                 else if(target > nums[mid]) // if taget  is greater then mid we will search in right
-                     start = mid +1;
-                 
-              else 
-             {
-                 return mid;
-             }
+            if (midVal == target) {             // If the middle value is the target, return the index
+                return mid;
+            } else if (midVal < target) {       // If the middle value is less than the target, adjust the start
+                start = mid + 1;
+            } else {                            // If the middle value is greater than the target, adjust the end
+                end = mid - 1;
+            }
+        }
 
-             
-         }
-         return -1;
+        return -1;    // Target not found in the array
     }
 }
