@@ -18,7 +18,7 @@ class Solution {
             }
         }
 
-        // Return the final length of the modified array, which represents the number of elements that are not equal to   'val'.
+        // Return the final length of the modified array, which represents the number of elements that are not equal to   'val'
         return ans;
     }
 }
